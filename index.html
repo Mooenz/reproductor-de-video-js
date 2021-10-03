@@ -15,8 +15,8 @@
     />
     <title>Reproductor de video - Mooenz</title>
   </head>
-  <body class="bg-gray-900 px-4 sm:px-6 lg:px-8">
-    <header class="py-10 max-w-screen-xl mx-auto">
+  <body class="bg-gray-900">
+    <header class="py-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <p
           class="
@@ -52,16 +52,15 @@
     </header>
 
     <main>
-      <div class="relative flex justify-center">
-        <video class="w-full max-w-screen-lg" src="./angel.mp4"></video>
-        <div class="hidden hover:felx absolute h-16 w-full max-w-screen-lg bg-gray-900 m-auto bottom-0 opacity-50">
+      <div class=" flex justify-center bg-black">
+        <video class="w-full max-w-screen-lg" src="./angel.mp4" controls></video>
+      </div>
+      <div class="transition delay-300 duration-700 hover:invisibility bg-gray-900 -mt-16 h-16 w-full m-auto bottom-0 opacity-70">
 
-        </div>
       </div>
     </main>
 
     <footer>
-
     </footer>
     <script type="module" src="/_dist_/index.js"></script>
   </body>
