@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Web site created using create-snowpack-app"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="%PUBLIC_URL%/_dist_/index.css"
-    />
-    <title>Reproductor de video - Mooenz</title>
-  </head>
-  <body class="bg-gray-900">
-    <header class="py-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <p
-          class="
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Web site created using create-snowpack-app" />
+  <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/_dist_/index.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <title>Reproductor de video - Mooenz</title>
+</head>
+
+<body class="bg-gray-900">
+  <header class="py-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <p class="
             text-base
             leading-6
             text-blue-700
@@ -27,12 +23,10 @@
             tracking-wide
             font-bold
             uppercase
-          "
-        >
-          Reproductor de video
-        </p>
-        <h3
-          class="
+          ">
+        Reproductor de video
+      </p>
+      <h3 class="
             mt-2
             text-3xl
             leading-8
@@ -40,28 +34,39 @@
             tracking-tight
             text-white
             sm:text-4xl sm:leading-10
-          "
-        >
-          Plapp
-        </h3>
-        <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-400 mx-auto">
-          Puedes reproducir tu lista de video favorita y tener todo el control,
-          sin anuncios y totalmente gratis.
-        </p>
-      </div>
-    </header>
+          ">
+        Plapp
+      </h3>
+      <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-400 mx-auto">
+        Puedes reproducir tu lista de video favorita y tener todo el control,
+        sin anuncios y totalmente gratis.
+      </p>
+    </div>
+  </header>
 
-    <main>
-      <div class=" flex justify-center bg-black">
-        <video class="w-full max-w-screen-lg" src="./angel.mp4" controls></video>
-      </div>
-      <div class="transition delay-300 duration-700 hover:invisibility bg-gray-900 -mt-16 h-16 w-full m-auto bottom-0 opacity-70">
+  <main>
 
+    <div class="main-container">
+      <div id="video" class="main-container__video">
+        <video class="video" src="./angel.mp4"></video>
+        <div class="main-container__controls show">
+          <div class="main-container__controls-left">
+            <i id="play" class="fas fa-play"></i>
+            <i id="pause" class="fas fa-pause"></i>
+            <i id="mute" class="fas fa-volume-mute"></i>
+            <i id="nomute" class="fas fa-volume-up"></i>
+          </div>
+          <div class="main-container__controls-right">
+            <i id="expand" class="fas fa-expand"></i>
+            <i id="compress" class="fas fa-compress"></i>
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <footer>
-    </footer>
-    <script type="module" src="%PUBLIC_URL%/_dist_/index.js"></script>
-  </body>
+  <footer></footer>
+  <script type="module" src="%PUBLIC_URL%/_dist_/index.js"></script>
+</body>
+
 </html>
