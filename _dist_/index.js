@@ -11,39 +11,38 @@ const COMPRESS = document.querySelector(".compress");
 const DURATION = document.querySelector(".duration");
 
 function showControls() {
-  CONTENEDOR__VIDEO.classList.add("container-video-show");
+  CONTENEDOR__VIDEO.classList.toggle("container-video-show");
 }
 
 function hiddenControls() {
-  CONTENEDOR__VIDEO.classList.remove("container-video-show");
+  CONTENEDOR__VIDEO.classList.toggle("container-video-show");
 }
 
 function activeControls(ev) {
   const ID = ev.target.id;
 
-  if (ID === "play" || ID === "video") {
-    VIDEO.play();
-    PLAY.classList.add("hidden-icon");
-    PAUSE.classList.add("show-icon");
+  if (ID === "play" || ID === "video" || ID === "pause") {
+    if (VIDEO.paused === true) {
+      VIDEO.play();
+    } else {
+      VIDEO.pause();
+    }
+
+    PLAY.classList.toggle("hidden-icon");
+    PAUSE.classList.toggle("show-icon");
   }
 
-  if (ID === "pause") {
-    VIDEO.pause();
-    PLAY.classList.remove("hidden-icon");
-    PAUSE.classList.remove("show-icon");
+  if (ID === "mute" || ID === "nomute") {
+    if (VIDEO.muted === true) {
+      VIDEO.muted = false;
+    } else {
+      VIDEO.muted = true;
+    }
+
+    MUTE.classList.toggle("hidden-icon");
+    NOMUTE.classList.toggle("show-icon");
   }
 
-  if (ID === "mute") {
-    VIDEO.muted = true;
-    MUTE.classList.add("hidden-icon");
-    NOMUTE.classList.add("show-icon");
-  }
-
-  if (ID === "nomute") {
-    VIDEO.muted = false;
-    MUTE.classList.remove("hidden-icon");
-    NOMUTE.classList.remove("show-icon");
-  }
 
   if (ID === "loop") {
     if (VIDEO.loop === true) {
@@ -54,31 +53,26 @@ function activeControls(ev) {
     LOOP.classList.toggle("active");
   }
 
-  if (ID === "expand") {
-    MAIN__CONTAINER.classList.add("expand-video");
-    EXPAND.classList.add("hidden-icon");
-    COMPRESS.classList.add("show-icon");
-  }
+  if (ID === "expand" || ID === "compress") {
 
-  if (ID === "compress") {
-    MAIN__CONTAINER.classList.remove("expand-video");
-    EXPAND.classList.remove("hidden-icon");
-    COMPRESS.classList.remove("show-icon");
+    MAIN__CONTAINER.classList.toggle("expand-video");
+    EXPAND.classList.toggle("hidden-icon");
+    COMPRESS.classList.toggle("show-icon");
   }
 }
 
 function duration() {
   const DURATION_VIDEO = Math.floor(VIDEO.duration);
-  const MIN_VIDEO = Math.floor(DURATION_VIDEO/100);
-  console.log(DURATION_VIDEO);
-  return `${MIN_VIDEO}:00`;
+  const MIN_VIDEO = Math.floor(DURATION_VIDEO / 100);
+  const SEC_VIDEO = Math.floor(DURATION_VIDEO - 200);
+  return DURATION.innerHTML = `${MIN_VIDEO}:${SEC_VIDEO}`;
 }
 
 function startVideo() {
   CONTENEDOR__VIDEO.addEventListener("mouseover", showControls, false);
   CONTENEDOR__VIDEO.addEventListener("mouseout", hiddenControls, false);
   CONTENEDOR__VIDEO.addEventListener("click", activeControls, false);
-  DURATION.innerHTML = duration();
+  duration();
   return console.log("Cargo...");
 }
 
