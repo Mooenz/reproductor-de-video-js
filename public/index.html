@@ -48,18 +48,25 @@
 
     <div class="main-container">
       <div class="main-container__video">
-        <video id="video" class="video" src="./angel.mp4"></video>        
+        <video id="video" class="video" src="./angel.mp4"></video>
         <div class="main-container__controls show">
           <div class="main-container__controls-left">
-            <i id="play" class="fas fa-play"></i>
-            <i id="pause" class="fas fa-pause"></i>
-            <i id="mute" class="fas fa-volume-mute"></i>
-            <i id="nomute" class="fas fa-volume-up"></i>
-            <i id="loop" class="fas fa-undo-alt"></i>
+            <i id="play" class="play fas fa-play"></i>
+            <i id="pause" class="pause fas fa-pause"></i>
+            <i id="mute" class="mute fas fa-volume-mute"></i>
+            <i id="nomute" class="nomute fas fa-volume-up"></i>
+            <i id="loop" class="loop fas fa-undo-alt"></i>
+            <div class="duration-container">
+              <p>
+                <span class="time">0:00</span>
+                /
+                <span class="duration">0:00</span>
+                </p>
+            </div>
           </div>
           <div class="main-container__controls-right">
-            <i id="expand" class="fas fa-expand"></i>
-            <i id="compress" class="fas fa-compress"></i>
+            <i id="expand" class="expand fas fa-expand"></i>
+            <i id="compress" class="compress fas fa-compress"></i>
           </div>
         </div>
       </div>
