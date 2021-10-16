@@ -1,3 +1,65 @@
 @import 'tailwindcss/dist/base.css';
 @import 'tailwindcss/dist/components.css';
 @import 'tailwindcss/dist/utilities.css';
+
+
+.main-container {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background: #000;
+
+}
+
+.main-container .main-container__video {
+  position: relative;
+}
+
+.main-container .main-container__video video {
+  min-width: 270px;
+  width: 1024px;
+}
+
+.main-container__controls {
+  height: 60px;
+  width: 100%;
+  background: #000;
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, transparent 100%);
+  opacity: 0%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition-duration: 1.5s;
+}
+
+/* .main-container__controls:hover {} */
+
+/* Iconos */
+.fas {
+  font-size: 20px;
+  color: #fff;
+}
+
+.fas:hover {
+  color: springgreen;
+}
+
+
+.main-container__controls-left {
+  display: flex;
+  gap: 20px;
+}
+
+/* .main-container__controls-right {} */
+
+.container-video-show .show {
+  opacity: 100%;
+  transition-duration: 0.1s;
+}
