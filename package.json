@@ -1,4 +1,5 @@
 {
+  "homepage": "https://mooenz.github.io/reproductor-de-video-js",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
