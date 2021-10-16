@@ -5,6 +5,6 @@ module.exports = {
     src: '/_dist_',
   },
   buildOptions: {
-    baseUrl: 'https://mooenz.github.io/workshop-avocato',
+    baseUrl: 'https://mooenz.github.io/reproductor-de-video-js',
   },
 }
