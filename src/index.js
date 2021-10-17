@@ -45,10 +45,11 @@ function activeControls(ev) {
   }
 }
 
-async function duration() {
-  const DURATION_VIDEO = await Math.floor(VIDEO.duration);
-  const MIN_VIDEO = await Math.floor(DURATION_VIDEO / 100);
-  const SEC_VIDEO = await Math.floor(DURATION_VIDEO - 200);
+function duration() {
+  VIDEO.load();
+  const DURATION_VIDEO = Math.floor(VIDEO.duration);
+  const MIN_VIDEO = Math.floor(DURATION_VIDEO / 100);
+  const SEC_VIDEO = Math.floor(DURATION_VIDEO - 200);
 
   return DURATION.innerHTML = `${MIN_VIDEO}:${SEC_VIDEO}`;
 }
