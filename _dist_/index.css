@@ -2,6 +2,31 @@
 @import "../_snowpack/pkg/tailwindcss/dist/components.css";
 @import "../_snowpack/pkg/tailwindcss/dist/utilities.css";
 
+main {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title-container {
+  color: #fff;
+  margin: 20px 0;
+  justify-self: start;
+  width: 1024px;
+  min-width: 270px;
+}
+
+.title-container h1 {
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 0.1px;
+}
 
 .main-container {
   height: auto;
@@ -77,7 +102,7 @@
   color: springgreen;
 }
 
-.container-video-show .show {
+.show-controls .main-container__controls {
   opacity: 100%;
   transition-duration: 0.1s;
 }

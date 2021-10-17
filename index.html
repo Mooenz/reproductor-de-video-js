@@ -13,43 +13,17 @@
 </head>
 
 <body class="bg-gray-900">
-  <header class="py-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center">
-      <p class="
-            text-base
-            leading-6
-            text-blue-700
-            font-semibold
-            tracking-wide
-            font-bold
-            uppercase
-          ">
-        Reproductor de video
-      </p>
-      <h3 class="
-            mt-2
-            text-3xl
-            leading-8
-            font-extrabold
-            tracking-tight
-            text-white
-            sm:text-4xl sm:leading-10
-          ">
-        Plapp
-      </h3>
-      <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-400 mx-auto">
-        Puedes reproducir tu lista de video favorita y tener todo el control,
-        sin anuncios y totalmente gratis.
-      </p>
-    </div>
-  </header>
-
   <main>
-
+    <div class="title-container">
+      <h1>Goodbye Angels - Red Hot Chili Peppers</h1>
+    </div>
     <div class="main-container">
       <div class="main-container__video">
         <video id="video" class="video" src="./angel.mp4"></video>
-        <div class="main-container__controls show">
+        <div class="main-container__controls">
+          <!-- <div class="container-progress">
+            <input type="range" name="points" min="0" max="0" id="barra">
+          </div> -->
           <div class="main-container__controls-left">
             <i id="play" class="play fas fa-play"></i>
             <i id="pause" class="pause fas fa-pause"></i>
@@ -61,7 +35,7 @@
                 <span class="time">0:00</span>
                 /
                 <span class="duration">0:00</span>
-                </p>
+              </p>
             </div>
           </div>
           <div class="main-container__controls-right">
