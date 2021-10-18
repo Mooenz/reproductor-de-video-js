@@ -9,6 +9,8 @@ const LOOP = document.querySelector(".loop");
 const EXPAND = document.querySelector(".expand");
 const COMPRESS = document.querySelector(".compress");
 const DURATION = document.querySelector(".duration");
+const TIME = document.querySelector('.time');
+const PROGRESS_BAR = document.querySelector('.bar');
 
 const showControls = () => CONTENEDOR__VIDEO.classList.toggle("show-controls");
 
@@ -45,21 +47,42 @@ function activeControls(ev) {
   }
 }
 
+function progressBar() {
+  const POSITION = VIDEO.currentTime; // posicion actual 
+  const MAX = VIDEO.duration; // duracion maxima del video
+  // poner valores en los atributos del input range 
+  // para usar como barra de progreso
+  PROGRESS_BAR.setAttribute("max", MAX);
+  PROGRESS_BAR.value = POSITION;
+}
+
+function time() {
+  const TIME_ACTUAL = VIDEO.currentTime;
+  const MIN_VIDEO = Math.floor(TIME_ACTUAL / 100);
+  const SEC_VIDEO = Math.floor(TIME_ACTUAL);
+
+  return TIME.innerHTML = `${MIN_VIDEO}:${SEC_VIDEO}`;
+}
+
 function duration() {
-  VIDEO.load();
   const DURATION_VIDEO = Math.floor(VIDEO.duration);
-  const MIN_VIDEO = Math.floor(DURATION_VIDEO / 100);
+  const MIN_VIDEO = Math.floor(DURATION_VIDEO / 60);
   const SEC_VIDEO = Math.floor(DURATION_VIDEO - 200);
 
   return DURATION.innerHTML = `${MIN_VIDEO}:${SEC_VIDEO}`;
 }
 
+// se ejecuta cuando esta funcionado la barra de progreso
+VIDEO.ontimeupdate = function () {
+  progressBar();
+  duration();
+  time();
+};
+
 function startVideo() {
   CONTENEDOR__VIDEO.addEventListener("mouseover", showControls, false);
   CONTENEDOR__VIDEO.addEventListener("mouseout", hiddenControls, false);
   CONTENEDOR__VIDEO.addEventListener("click", activeControls, false);
-  duration();
-  
   return console.log("Cargo...");
 }
 
