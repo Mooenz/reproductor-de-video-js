@@ -1,5 +1,5 @@
-const MAIN__CONTAINER = document.querySelector(".main-container");
-const CONTENEDOR__VIDEO = document.querySelector(".main-container__video");
+const MAIN_CONTAINER = document.querySelector(".main-container");
+const CONTENEDOR_VIDEO = document.querySelector(".main-container__video");
 const VIDEO = document.querySelector(".video");
 const PLAY = document.querySelector(".play");
 const PAUSE = document.querySelector(".pause");
@@ -12,9 +12,9 @@ const DURATION = document.querySelector(".duration");
 const TIME = document.querySelector('.time');
 const PROGRESS_BAR = document.querySelector('.bar');
 
-const showControls = () => CONTENEDOR__VIDEO.classList.toggle("show-controls");
+const showControls = () => CONTENEDOR_VIDEO.classList.toggle("show-controls");
 
-const hiddenControls = () => CONTENEDOR__VIDEO.classList.toggle("show-controls");
+const hiddenControls = () => CONTENEDOR_VIDEO.classList.toggle("show-controls");
 
 function activeControls(ev) {
   const ID = ev.target.id;
@@ -41,7 +41,8 @@ function activeControls(ev) {
   }
 
   if (ID === "expand" || ID === "compress") {
-    MAIN__CONTAINER.classList.toggle("expand-video");
+    MAIN_CONTAINER.classList.toggle("expand-video");
+
     EXPAND.classList.toggle("hidden-icon");
     COMPRESS.classList.toggle("show-icon");
   }
@@ -49,25 +50,35 @@ function activeControls(ev) {
 
 function progressBar() {
   const POSITION = VIDEO.currentTime; // posicion actual 
-  const MAX = VIDEO.duration; // duracion maxima del video
-  // poner valores en los atributos del input range 
-  // para usar como barra de progreso
-  PROGRESS_BAR.setAttribute("max", MAX);
-  PROGRESS_BAR.value = POSITION;
+  const POSITION_MAX = VIDEO.duration; // duracion maxima del video
+  const POSITION_PERCENTAGE = (POSITION * 100) / POSITION_MAX; //Calculo del progreso en porcentaje
+  PROGRESS_BAR.style.width = `${POSITION_PERCENTAGE}%`;
 }
 
 function time() {
   const TIME_ACTUAL = VIDEO.currentTime;
-  const MIN_VIDEO = Math.floor(TIME_ACTUAL / 100);
-  const SEC_VIDEO = Math.floor(TIME_ACTUAL);
+  let SEC_VIDEO = Math.floor(TIME_ACTUAL);
+  let MIN_VIDEO = 0;
 
-  return TIME.innerHTML = `${MIN_VIDEO}:${SEC_VIDEO}`;
+
+  if (TIME_ACTUAL >= 59) {
+    MIN_VIDEO = Math.floor(TIME_ACTUAL / 60);
+  }
+
+  let SEC_VIDEO_ACTUAL = SEC_VIDEO - (MIN_VIDEO * 60);
+
+  if (SEC_VIDEO_ACTUAL <= 9) {
+    SEC_VIDEO_ACTUAL = `0${SEC_VIDEO_ACTUAL}`;
+  }
+
+
+  return TIME.innerHTML = `${MIN_VIDEO}:${SEC_VIDEO_ACTUAL}`;
 }
 
 function duration() {
   const DURATION_VIDEO = Math.floor(VIDEO.duration);
   const MIN_VIDEO = Math.floor(DURATION_VIDEO / 60);
-  const SEC_VIDEO = Math.floor(DURATION_VIDEO - 200);
+  const SEC_VIDEO = Math.floor(DURATION_VIDEO - (MIN_VIDEO * 60));
 
   return DURATION.innerHTML = `${MIN_VIDEO}:${SEC_VIDEO}`;
 }
@@ -80,9 +91,9 @@ VIDEO.ontimeupdate = function () {
 };
 
 function startVideo() {
-  CONTENEDOR__VIDEO.addEventListener("mouseover", showControls, false);
-  CONTENEDOR__VIDEO.addEventListener("mouseout", hiddenControls, false);
-  CONTENEDOR__VIDEO.addEventListener("click", activeControls, false);
+  CONTENEDOR_VIDEO.addEventListener("mouseover", showControls, false);
+  CONTENEDOR_VIDEO.addEventListener("mouseout", hiddenControls, false);
+  CONTENEDOR_VIDEO.addEventListener("click", activeControls, false);
   return console.log("Cargo...");
 }
 
