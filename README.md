@@ -1,4 +1,5 @@
 # **Reproductor de Video**
+
 This app is a video player, enjoy.
 
 ## **Demo** 🚀
@@ -25,4 +26,4 @@ This app is a video player, enjoy.
 
 This project is MIT licensed
 
-***With ❤️ Mooenz***
+***With*** ❤️ ***Mooenz***
